@@ -1,24 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Photography Website</title>
-
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>therandomclicks.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <div class="container navbar">
+      <a href="#home" class="brand">
+        <div class="brand-mark">R</div>
+        <div class="brand-text">
+          <h1>therandomclicks.com</h1>
+          <p>Curated gallery of photography and visual stories</p>
+        </div>
+      </a>
 
-    <h1>Welcome to My Photography</h1>
-    <p>This is my portfolio website 📸</p>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#locations">Collections</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#archive">Archive</a></li>
+        </ul>
+      </nav>
 
-    <!-- Image added here -->
-    <img src="https://res.cloudinary.com/dfoirz0ps/image/upload/q_auto/f_auto/v1775946365/DSC01796_cufpwm.jp2" alt="My Photography" width="600">
+      <div class="nav-actions">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <a href="#gallery" class="pill-btn primary">Explore</a>
+      </div>
+    </div>
+  </header>
 
-    <button onclick="showMessage()">Click Me</button>
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-card reveal">
+          <div class="hero-topbar">
+            <div class="hero-stats">
+              <div class="stat">
+                <strong>1000+</strong>
+                <span>Frames ready to be showcased</span>
+              </div>
+              <div class="stat">
+                <strong>20+</strong>
+                <span>Curated collections by place and mood</span>
+              </div>
+              <div class="stat">
+                <strong>4K</strong>
+                <span>High-resolution visuals for every screen</span>
+              </div>
+            </div>
 
-    <!-- Link JS -->
-    <script src="script.js"></script>
+            <div class="hero-search">
+              <div class="search-row">
+                <input class="search-field" type="text" placeholder="Search the gallery by place or mood">
+                <select class="search-select">
+                  <option>All Categories</option>
+                  <option>Landscape</option>
+                  <option>Street</option>
+                  <option>Nature</option>
+                  <option>Travel</option>
+                  <option>Night</option>
+                </select>
+                <select class="search-select">
+                  <option>All Collections</option>
+                  <option>Seattle</option>
+                  <option>New York</option>
+                  <option>Jersey City</option>
+                  <option>Mountains</option>
+                  <option>Beaches</option>
+                </select>
+                <button class="search-submit">Browse</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-content">
+            <div class="eyebrow">Minimal gallery experience</div>
+            <h2 class="hero-title">
+              A gallery that lets
+              <span class="muted-line">every frame breathe.</span>
+            </h2>
+            <p class="hero-text">
+              therandomclicks.com is a clean and immersive photography gallery built to present your best work with clarity, calm, and visual impact.
+            </p>
+            <div class="hero-actions">
+              <a href="#gallery" class="pill-btn primary">View Gallery</a>
+              <a href="#locations" class="ghost-btn">Browse Collections</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="locations">
+      <div class="container">
+        <div class="split-intro reveal">
+          <div>
+            <div class="eyebrow">Gallery Collections</div>
+            <h2 class="section-title">Explore the gallery by collection.</h2>
+          </div>
+          <div class="glass-card">
+            <p class="section-text">
+              Discover photographs arranged by city, coast, forest, mountain, and travel moments so the gallery feels effortless to browse and easy to revisit.
+            </p>
+          </div>
+        </div>
+
+        <div class="location-grid">
+          <article class="location-card reveal">
+            <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80" alt="Mountain collection">
+            <div class="location-overlay">
+              <div>
+                <h3>Mountains</h3>
+                <p>Expansive views, soft light, and quiet landscapes.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="location-card reveal">
+            <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1200&q=80" alt="City collection">
+            <div class="location-overlay">
+              <div>
+                <h3>City Life</h3>
+                <p>Architecture, streets, motion, and everyday rhythm.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="location-card reveal">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Beach collection">
+            <div class="location-overlay">
+              <div>
+                <h3>Beaches</h3>
+                <p>Open skies, distant horizons, and peaceful tones.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="location-card reveal">
+            <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=80" alt="Forest collection">
+            <div class="location-overlay">
+              <div>
+                <h3>Forest Trails</h3>
+                <p>Layered greens, organic textures, and immersive depth.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="gallery-header reveal">
+          <div>
+            <div class="eyebrow">Featured Gallery</div>
+            <h2 class="section-title">A curated wall of photographs.</h2>
+            <p class="section-text">
+              A calm, modern gallery designed to keep the focus on the image.
+            </p>
+            <div class="gallery-filters">
+              <button class="filter-chip active">All</button>
+              <button class="filter-chip">Landscape</button>
+              <button class="filter-chip">Travel</button>
+              <button class="filter-chip">Street</button>
+              <button class="filter-chip">Night</button>
+              <button class="filter-chip">Minimal</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="masonry reveal">
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 1">
+            <div class="art-meta">
+              <h4>Silent Valley</h4>
+              <p>Landscape • Mountain Collection</p>
+            </div>
+          </article>
+
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 2">
+            <div class="art-meta">
+              <h4>Blue Horizon</h4>
+              <p>Travel • Coastal Collection</p>
+            </div>
+          </article>
+
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 3">
+            <div class="art-meta">
+              <h4>Night City</h4>
+              <p>Urban • Night Collection</p>
+            </div>
+          </article>
+
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 4">
+            <div class="art-meta">
+              <h4>Still Water</h4>
+              <p>Nature • Reflection Series</p>
+            </div>
+          </article>
+
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 5">
+            <div class="art-meta">
+              <h4>Road Story</h4>
+              <p>Travel • Open Road Collection</p>
+            </div>
+          </article>
+
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 6">
+            <div class="art-meta">
+              <h4>Wild Bloom</h4>
+              <p>Nature • Detail Collection</p>
+            </div>
+          </article>
+
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 7">
+            <div class="art-meta">
+              <h4>Forest Breath</h4>
+              <p>Nature • Woodland Collection</p>
+            </div>
+          </article>
+
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 8">
+            <div class="art-meta">
+              <h4>Color Trail</h4>
+              <p>Landscape • Sky Collection</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="archive">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Gallery Archive</div>
+          <h2 class="section-title">Built to grow with your collection.</h2>
+          <p class="section-text">
+            The gallery is ready for a growing archive with space for tags, collections, fullscreen viewing, and a richer browsing experience as more photographs are added.
+          </p>
+        </div>
+
+        <div class="system-grid">
+          <div class="system-card reveal">
+            <h3>Organized Collections</h3>
+            <p>
+              Group photographs by location, mood, travel, nature, night, and custom themes without losing the clean gallery feel.
+            </p>
+          </div>
+
+          <div class="system-card reveal">
+            <h3>Scalable Archive</h3>
+            <p>
+              Expand the gallery over time with metadata like title, collection, location, and orientation for smoother browsing and future automation.
+            </p>
+          </div>
+
+          <div class="system-card reveal">
+            <h3>Refined Viewing</h3>
+            <p>
+              Add lightbox previews, lazy loading, fullscreen mode, favorites, and smarter filters to make the gallery feel even more polished.
+            </p>
+          </div>
+        </div>
+
+        <div class="cta-banner reveal">
+          <div>
+            <h3>therandomclicks.com</h3>
+            <p>
+              A photography gallery designed to showcase every click with clarity and style.
+            </p>
+          </div>
+          <a href="#gallery" class="pill-btn primary">Enter Gallery</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <p>© 2026 therandomclicks.com — Curated photography gallery and visual archive.</p>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#locations">Collections</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#archive">Archive</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
