@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="announcement-bar">
+    <p>New featured slider added. Explore the gallery with a cleaner, more immersive showcase layout.</p>
+  </div>
+
   <header>
     <div class="container navbar">
       <a href="#home" class="brand">
@@ -98,66 +102,79 @@
       </div>
     </section>
 
-    <section class="section" id="locations">
+    <section class="section light-section" id="gallery">
       <div class="container">
-        <div class="split-intro reveal">
-          <div>
-            <div class="eyebrow">Gallery Collections</div>
-            <h2 class="section-title">Explore the gallery by collection.</h2>
+        <div class="slider-section reveal">
+          <div class="gallery-header">
+            <div>
+              <div class="eyebrow">Featured Showcase</div>
+              <h2 class="section-title">Endless visual stories.</h2>
+              <p class="section-text">
+                A cinematic carousel of standout images designed to keep the center frame in focus while the next stories stay in view.
+              </p>
+            </div>
+
+            <div class="slider-controls">
+              <button class="slider-btn" type="button" id="sliderPrev" aria-label="Previous slide">←</button>
+              <button class="slider-btn" type="button" id="sliderNext" aria-label="Next slide">→</button>
+            </div>
           </div>
-          <div class="glass-card">
-            <p class="section-text">
-              Discover photographs arranged by city, coast, forest, mountain, and travel moments so the gallery feels effortless to browse and easy to revisit.
-            </p>
+
+          <div class="entertainment-slider" id="imageSlider" aria-label="Featured entertainment-style gallery">
+            <article class="slide-card is-center">
+              <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80" alt="Open road through mountains">
+              <div class="slide-meta">
+                <span class="slide-kicker">Travel Collection</span>
+                <h3>Open Roads</h3>
+                <p>Long-distance landscapes with golden light, open horizons, and a sense of motion.</p>
+                <a href="#gallery" class="slide-cta">View story</a>
+              </div>
+            </article>
+
+            <article class="slide-card">
+              <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1400&q=80" alt="Snowy mountain peaks">
+              <div class="slide-meta">
+                <span class="slide-kicker">Mountain Series</span>
+                <h3>Alpine Air</h3>
+                <p>Crisp contrast, textured ridgelines, and stillness at high altitude.</p>
+                <a href="#gallery" class="slide-cta">View story</a>
+              </div>
+            </article>
+
+            <article class="slide-card">
+              <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1400&q=80" alt="City skyline at dusk">
+              <div class="slide-meta">
+                <span class="slide-kicker">City Light</span>
+                <h3>After Hours</h3>
+                <p>Urban scenes shaped by reflections, structure, and late-evening color.</p>
+                <a href="#gallery" class="slide-cta">View story</a>
+              </div>
+            </article>
+
+            <article class="slide-card">
+              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80" alt="Ocean waves and beach">
+              <div class="slide-meta">
+                <span class="slide-kicker">Coastal Mood</span>
+                <h3>Sea Light</h3>
+                <p>Open sky, moving water, and a quiet blue atmosphere across the coastline.</p>
+                <a href="#gallery" class="slide-cta">View story</a>
+              </div>
+            </article>
+
+            <article class="slide-card">
+              <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1400&q=80" alt="Forest pathway with sunlight">
+              <div class="slide-meta">
+                <span class="slide-kicker">Nature Detail</span>
+                <h3>Forest Glow</h3>
+                <p>Woodland moments with layered depth, soft light, and immersive texture.</p>
+                <a href="#gallery" class="slide-cta">View story</a>
+              </div>
+            </article>
           </div>
+
+          <div class="slider-dots" id="sliderDots" aria-label="Slider navigation"></div>
         </div>
 
-        <div class="location-grid">
-          <article class="location-card reveal">
-            <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80" alt="Mountain collection">
-            <div class="location-overlay">
-              <div>
-                <h3>Mountains</h3>
-                <p>Expansive views, soft light, and quiet landscapes.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="location-card reveal">
-            <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1200&q=80" alt="City collection">
-            <div class="location-overlay">
-              <div>
-                <h3>City Life</h3>
-                <p>Architecture, streets, motion, and everyday rhythm.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="location-card reveal">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Beach collection">
-            <div class="location-overlay">
-              <div>
-                <h3>Beaches</h3>
-                <p>Open skies, distant horizons, and peaceful tones.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="location-card reveal">
-            <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=80" alt="Forest collection">
-            <div class="location-overlay">
-              <div>
-                <h3>Forest Trails</h3>
-                <p>Layered greens, organic textures, and immersive depth.</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="gallery">
-      <div class="container">
         <div class="gallery-header reveal">
           <div>
             <div class="eyebrow">Featured Gallery</div>
@@ -244,7 +261,65 @@
       </div>
     </section>
 
-    <section class="section" id="archive">
+    <section class="section light-section" id="locations">
+      <div class="container">
+        <div class="split-intro reveal">
+          <div>
+            <div class="eyebrow">Gallery Collections</div>
+            <h2 class="section-title">Explore the gallery by collection.</h2>
+          </div>
+          <div class="glass-card">
+            <p class="section-text">
+              Discover photographs arranged by city, coast, forest, mountain, and travel moments so the gallery feels effortless to browse and easy to revisit.
+            </p>
+          </div>
+        </div>
+
+        <div class="location-grid">
+          <article class="location-card reveal">
+            <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80" alt="Mountain collection">
+            <div class="location-overlay">
+              <div>
+                <h3>Mountains</h3>
+                <p>Expansive views, soft light, and quiet landscapes.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="location-card reveal">
+            <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1200&q=80" alt="City collection">
+            <div class="location-overlay">
+              <div>
+                <h3>City Life</h3>
+                <p>Architecture, streets, motion, and everyday rhythm.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="location-card reveal">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Beach collection">
+            <div class="location-overlay">
+              <div>
+                <h3>Beaches</h3>
+                <p>Open skies, distant horizons, and peaceful tones.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="location-card reveal">
+            <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=80" alt="Forest collection">
+            <div class="location-overlay">
+              <div>
+                <h3>Forest Trails</h3>
+                <p>Layered greens, organic textures, and immersive depth.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="archive">
       <div class="container">
         <div class="reveal">
           <div class="eyebrow">Gallery Archive</div>
