@@ -32,74 +32,93 @@ document.querySelectorAll(".filter-chip").forEach((chip) => {
 });
 
 const imageSlider = document.getElementById("imageSlider");
+const filmTrack = document.getElementById("filmTrack");
 const sliderPrev = document.getElementById("sliderPrev");
 const sliderNext = document.getElementById("sliderNext");
-const sliderDots = document.getElementById("sliderDots");
 
-if (imageSlider && sliderPrev && sliderNext) {
-  const slides = Array.from(imageSlider.querySelectorAll(".slide-card"));
-  let activeIndex = 0;
+if (imageSlider && filmTrack && sliderPrev && sliderNext) {
   let autoRotateTimer;
+  let isAnimating = false;
 
-  const getWrappedIndex = (index) => (index + slides.length) % slides.length;
+  const duplicateSlidesForLoop = () => {
+    const originalSlides = Array.from(filmTrack.querySelectorAll(".slide-card"));
+    if (originalSlides.length === 0) return;
 
-  const updateDots = () => {
-    if (!sliderDots) return;
-    Array.from(sliderDots.querySelectorAll(".slider-dot")).forEach((dot, dotIndex) => {
-      dot.classList.toggle("is-active", dotIndex === activeIndex);
-    });
+    for (let i = 0; i < 2; i += 1) {
+      originalSlides.forEach((slide) => {
+        const clone = slide.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        filmTrack.appendChild(clone);
+      });
+    }
   };
 
-  const renderCarousel = (index) => {
-    activeIndex = getWrappedIndex(index);
+  const getStepWidth = () => {
+    const firstSlide = filmTrack.querySelector(".slide-card");
+    if (!firstSlide) return 272;
+    const trackStyle = window.getComputedStyle(filmTrack);
+    const gap = parseFloat(trackStyle.columnGap || trackStyle.gap || "12");
+    return firstSlide.getBoundingClientRect().width + gap;
+  };
 
-    slides.forEach((slide) => {
-      slide.classList.remove("is-center", "is-left", "is-right", "is-back-left", "is-back-right");
+  const moveForward = () => {
+    if (isAnimating) return;
+    isAnimating = true;
+    const step = getStepWidth();
+    filmTrack.style.transition = "transform 0.45s ease";
+    filmTrack.style.transform = `translateX(-${step}px)`;
+
+    window.setTimeout(() => {
+      const firstSlide = filmTrack.firstElementChild;
+      if (firstSlide) {
+        filmTrack.appendChild(firstSlide);
+      }
+      filmTrack.style.transition = "none";
+      filmTrack.style.transform = "translateX(0)";
+      isAnimating = false;
+    }, 460);
+  };
+
+  const moveBackward = () => {
+    if (isAnimating) return;
+    isAnimating = true;
+    const step = getStepWidth();
+    const lastSlide = filmTrack.lastElementChild;
+    if (!lastSlide) return;
+
+    filmTrack.style.transition = "none";
+    filmTrack.insertBefore(lastSlide, filmTrack.firstElementChild);
+    filmTrack.style.transform = `translateX(-${step}px)`;
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        filmTrack.style.transition = "transform 0.45s ease";
+        filmTrack.style.transform = "translateX(0)";
+      });
     });
-
-    slides[activeIndex].classList.add("is-center");
-    slides[getWrappedIndex(activeIndex - 1)].classList.add("is-left");
-    slides[getWrappedIndex(activeIndex + 1)].classList.add("is-right");
-    slides[getWrappedIndex(activeIndex - 2)].classList.add("is-back-left");
-    slides[getWrappedIndex(activeIndex + 2)].classList.add("is-back-right");
-
-    updateDots();
+    window.setTimeout(() => {
+      isAnimating = false;
+    }, 460);
   };
 
   const restartAutoRotate = () => {
     window.clearInterval(autoRotateTimer);
-    autoRotateTimer = window.setInterval(() => {
-      renderCarousel(activeIndex + 1);
-    }, 4200);
+    autoRotateTimer = window.setInterval(moveForward, 1000);
   };
 
   sliderPrev.addEventListener("click", () => {
-    renderCarousel(activeIndex - 1);
+    moveBackward();
     restartAutoRotate();
   });
 
   sliderNext.addEventListener("click", () => {
-    renderCarousel(activeIndex + 1);
+    moveForward();
     restartAutoRotate();
   });
-
-  if (sliderDots) {
-    slides.forEach((_, index) => {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "slider-dot";
-      dot.setAttribute("aria-label", `Go to slide ${index + 1}`);
-      dot.addEventListener("click", () => {
-        renderCarousel(index);
-        restartAutoRotate();
-      });
-      sliderDots.appendChild(dot);
-    });
-  }
 
   imageSlider.addEventListener("mouseenter", () => window.clearInterval(autoRotateTimer));
   imageSlider.addEventListener("mouseleave", restartAutoRotate);
 
-  renderCarousel(0);
+  duplicateSlidesForLoop();
   restartAutoRotate();
 }
