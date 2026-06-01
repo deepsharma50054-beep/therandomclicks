@@ -64,24 +64,24 @@
 
             <div class="hero-search">
               <div class="search-row">
-                <input class="search-field" type="text" placeholder="Search the gallery by place or mood">
-                <select class="search-select">
-                  <option>All Categories</option>
-                  <option>Landscape</option>
-                  <option>Street</option>
-                  <option>Nature</option>
-                  <option>Travel</option>
-                  <option>Night</option>
+                <input class="search-field" id="gallerySearchField" type="text" placeholder="Search the gallery by place or mood">
+                <select class="search-select" id="galleryCategorySelect">
+                  <option value="all">All Categories</option>
+                  <option value="landscape">Landscape</option>
+                  <option value="street">Street</option>
+                  <option value="nature">Nature</option>
+                  <option value="travel">Travel</option>
+                  <option value="night">Night</option>
                 </select>
-                <select class="search-select">
-                  <option>All Collections</option>
-                  <option>Seattle</option>
-                  <option>New York</option>
-                  <option>Jersey City</option>
-                  <option>Mountains</option>
-                  <option>Beaches</option>
+                <select class="search-select" id="galleryCollectionSelect">
+                  <option value="all">All Collections</option>
+                  <option value="skagit-valley">Skagit Valley</option>
+                  <option value="mountains">Mt. Rainier</option>
+                  <option value="city-life">City Life</option>
+                  <option value="beaches">Beaches</option>
+                  <option value="forest-trails">Forest Trails</option>
                 </select>
-                <button class="search-submit">Browse</button>
+                <button class="search-submit" id="gallerySearchButton" type="button">Browse</button>
               </div>
             </div>
           </div>
@@ -180,19 +180,19 @@
               Every frame here began as a passing moment. What remains is the mood it carried: the hush before rain, the last light on water, the weight of mountains, the noise inside a city, the calm beneath trees.
             </p>
             <div class="gallery-filters">
-              <button class="filter-chip active">All</button>
-              <button class="filter-chip">Landscape</button>
-              <button class="filter-chip">Nature</button>
-              <button class="filter-chip">Travel</button>
-              <button class="filter-chip">Street</button>
-              <button class="filter-chip">Night</button>
-              <button class="filter-chip">Minimal</button>
+              <button class="filter-chip active" type="button" data-filter="all">All</button>
+              <button class="filter-chip" type="button" data-filter="landscape">Landscape</button>
+              <button class="filter-chip" type="button" data-filter="nature">Nature</button>
+              <button class="filter-chip" type="button" data-filter="travel">Travel</button>
+              <button class="filter-chip" type="button" data-filter="street">Street</button>
+              <button class="filter-chip" type="button" data-filter="night">Night</button>
+              <button class="filter-chip" type="button" data-filter="minimal">Minimal</button>
             </div>
           </div>
         </div>
 
-        <div class="masonry reveal">
-          <article class="art-card">
+        <div class="masonry reveal" id="galleryGrid">
+          <article class="art-card" data-category="landscape" data-collection="mountain" data-keywords="valley mountain alpine blue quiet stillness">
             <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 1">
             <div class="art-meta">
               <h4>Silent Valley</h4>
@@ -200,7 +200,7 @@
             </div>
           </article>
 
-          <article class="art-card">
+          <article class="art-card" data-category="travel" data-collection="coastal" data-keywords="blue horizon coast sea water breeze travel">
             <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 2">
             <div class="art-meta">
               <h4>Blue Horizon</h4>
@@ -208,7 +208,7 @@
             </div>
           </article>
 
-          <article class="art-card">
+          <article class="art-card" data-category="night" data-collection="night" data-keywords="city skyline urban lights evening street night">
             <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 3">
             <div class="art-meta">
               <h4>Night City</h4>
@@ -216,7 +216,7 @@
             </div>
           </article>
 
-          <article class="art-card">
+          <article class="art-card" data-category="nature" data-collection="reflection" data-keywords="water reflection still lake calm nature minimal">
             <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 4">
             <div class="art-meta">
               <h4>Still Water</h4>
@@ -224,7 +224,7 @@
             </div>
           </article>
 
-          <article class="art-card">
+          <article class="art-card" data-category="travel" data-collection="road" data-keywords="road travel landscape journey mountains open road">
             <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 5">
             <div class="art-meta">
               <h4>Road Story</h4>
@@ -232,7 +232,7 @@
             </div>
           </article>
 
-          <article class="art-card">
+          <article class="art-card" data-category="nature" data-collection="detail" data-keywords="flowers bloom wild detail spring field nature">
             <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 6">
             <div class="art-meta">
               <h4>Wild Bloom</h4>
@@ -240,7 +240,7 @@
             </div>
           </article>
 
-          <article class="art-card">
+          <article class="art-card" data-category="nature" data-collection="woodland" data-keywords="forest woods trail green breath woodland trees">
             <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 7">
             <div class="art-meta">
               <h4>Forest Breath</h4>
@@ -248,7 +248,7 @@
             </div>
           </article>
 
-          <article class="art-card">
+          <article class="art-card" data-category="landscape" data-collection="sky" data-keywords="sky color trail sunset landscape minimal horizon">
             <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 8">
             <div class="art-meta">
               <h4>Color Trail</h4>
@@ -256,6 +256,8 @@
             </div>
           </article>
         </div>
+
+        <p class="gallery-empty-state" id="galleryEmptyState" hidden>No frames matched that search. Try a different mood, category, or collection.</p>
       </div>
     </section>
 

@@ -272,6 +272,32 @@ const lightboxNext = document.getElementById("lightboxNext");
 
 let currentIndex = 0;
 
+const fullscreenElement =
+  () => document.fullscreenElement || document.webkitFullscreenElement || null;
+
+const fullscreenEnabled =
+  () => Boolean(document.fullscreenEnabled || document.webkitFullscreenEnabled);
+
+const requestElementFullscreen = async (element) => {
+  if (element.requestFullscreen) {
+    await element.requestFullscreen();
+    return;
+  }
+  if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  }
+};
+
+const exitAnyFullscreen = async () => {
+  if (document.exitFullscreen) {
+    await document.exitFullscreen();
+    return;
+  }
+  if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  }
+};
+
 const showImage = (index) => {
   if (!lightbox || !lightboxImage || !lightboxTitle || !lightboxDescription) return;
 
@@ -285,20 +311,29 @@ const showImage = (index) => {
   lightboxDescription.textContent = description;
 };
 
-const openLightbox = (index) => {
+const openLightbox = async (index, shouldEnterFullscreen = false) => {
   if (!lightbox) return;
   showImage(index);
   lightbox.hidden = false;
   lightbox.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
+
+  if (shouldEnterFullscreen && fullscreenEnabled()) {
+    try {
+      await requestElementFullscreen(lightbox);
+      updateFullscreenButton();
+    } catch (error) {
+      console.error("Opening fullscreen from collection tile failed", error);
+    }
+  }
 };
 
 const closeLightbox = async () => {
   if (!lightbox) return;
 
-  if (document.fullscreenElement === lightbox) {
+  if (fullscreenElement() === lightbox) {
     try {
-      await document.exitFullscreen();
+      await exitAnyFullscreen();
     } catch (error) {
       console.error("Exiting fullscreen failed", error);
     }
@@ -312,7 +347,7 @@ const closeLightbox = async () => {
 const updateFullscreenButton = () => {
   if (!lightboxFullscreen) return;
 
-  const isFullscreen = document.fullscreenElement === lightbox;
+  const isFullscreen = fullscreenElement() === lightbox;
   lightboxFullscreen.textContent = isFullscreen ? "⤢" : "⛶";
   lightboxFullscreen.setAttribute(
     "aria-label",
@@ -321,13 +356,13 @@ const updateFullscreenButton = () => {
 };
 
 const toggleFullscreen = async () => {
-  if (!lightbox || !lightboxFullscreen || !document.fullscreenEnabled) return;
+  if (!lightbox || !lightboxFullscreen || !fullscreenEnabled()) return;
 
   try {
-    if (document.fullscreenElement === lightbox) {
-      await document.exitFullscreen();
+    if (fullscreenElement() === lightbox) {
+      await exitAnyFullscreen();
     } else {
-      await lightbox.requestFullscreen();
+      await requestElementFullscreen(lightbox);
     }
   } catch (error) {
     console.error("Fullscreen request failed", error);
@@ -369,11 +404,13 @@ collection.images.forEach(([title, description, src], index) => {
       <p class="frame-note">${description}</p>
     </figcaption>
   `;
-  figure.addEventListener("click", () => openLightbox(index));
+  figure.addEventListener("click", () => {
+    openLightbox(index, true);
+  });
   figure.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      openLightbox(index);
+      openLightbox(index, true);
     }
   });
   grid.appendChild(figure);
@@ -382,7 +419,7 @@ collection.images.forEach(([title, description, src], index) => {
 if (lightbox && lightboxClose && lightboxPrev && lightboxNext) {
   lightboxClose.addEventListener("click", closeLightbox);
   if (lightboxFullscreen) {
-    if (document.fullscreenEnabled) {
+    if (fullscreenEnabled()) {
       lightboxFullscreen.addEventListener("click", toggleFullscreen);
       updateFullscreenButton();
     } else {
@@ -411,4 +448,5 @@ if (lightbox && lightboxClose && lightboxPrev && lightboxNext) {
   });
 
   document.addEventListener("fullscreenchange", updateFullscreenButton);
+  document.addEventListener("webkitfullscreenchange", updateFullscreenButton);
 }

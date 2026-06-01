@@ -23,13 +23,87 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-document.querySelectorAll(".filter-chip").forEach((chip) => {
+const searchField = document.getElementById("gallerySearchField");
+const categorySelect = document.getElementById("galleryCategorySelect");
+const collectionSelect = document.getElementById("galleryCollectionSelect");
+const searchButton = document.getElementById("gallerySearchButton");
+const galleryGrid = document.getElementById("galleryGrid");
+const emptyState = document.getElementById("galleryEmptyState");
+const filterChips = document.querySelectorAll(".filter-chip");
+const galleryCards = Array.from(document.querySelectorAll(".art-card"));
+
+const syncActiveChip = (value) => {
+  filterChips.forEach((chip) => {
+    chip.classList.toggle("active", chip.dataset.filter === value);
+  });
+};
+
+const applyHomepageCategoryFilter = (selectedCategory) => {
+  let visibleCount = 0;
+
+  galleryCards.forEach((card) => {
+    const category = card.dataset.category || "";
+    const isVisible = selectedCategory === "all" || category === selectedCategory;
+
+    card.classList.toggle("is-hidden", !isVisible);
+    if (isVisible) visibleCount += 1;
+  });
+
+  if (galleryGrid) {
+    galleryGrid.setAttribute("aria-live", "polite");
+  }
+
+  if (emptyState) {
+    emptyState.hidden = visibleCount !== 0;
+  }
+};
+
+const openSearchResultsPage = () => {
+  const params = new URLSearchParams();
+  const query = searchField?.value.trim() || "";
+  const category = categorySelect?.value || "all";
+  const collection = collectionSelect?.value || "all";
+
+  if (query) {
+    params.set("q", query);
+  }
+  if (category !== "all") {
+    params.set("category", category);
+  }
+  if (collection !== "all") {
+    params.set("collection", collection);
+  }
+
+  const target = params.toString() ? `search.html?${params.toString()}` : "search.html";
+  window.location.href = target;
+};
+
+filterChips.forEach((chip) => {
   chip.addEventListener("click", () => {
-    const group = chip.parentElement.querySelectorAll(".filter-chip");
-    group.forEach((item) => item.classList.remove("active"));
-    chip.classList.add("active");
+    const nextFilter = chip.dataset.filter || "all";
+    syncActiveChip(nextFilter);
+    applyHomepageCategoryFilter(nextFilter);
   });
 });
+
+if (searchButton) {
+  searchButton.addEventListener("click", openSearchResultsPage);
+}
+
+if (searchField) {
+  searchField.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      openSearchResultsPage();
+    }
+  });
+}
+
+if (categorySelect) {
+  categorySelect.addEventListener("change", () => syncActiveChip(categorySelect.value));
+}
+
+applyHomepageCategoryFilter("all");
 
 const imageSlider = document.getElementById("imageSlider");
 const filmTrack = document.getElementById("filmTrack");

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Results | therandomclicks.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="search-page">
+  <header class="search-topbar">
+    <div class="container search-topbar-inner">
+      <a href="index.html" class="search-back-link">← Back to Home</a>
+      <div class="search-topbar-copy">
+        <p class="eyebrow">Gallery Search</p>
+        <h1>Find frames by mood, place, or collection.</h1>
+      </div>
+      <div class="hero-search search-page-bar">
+        <div class="search-row">
+          <input class="search-field" id="searchPageField" type="text" placeholder="Search the gallery by place or mood">
+          <select class="search-select" id="searchPageCategory">
+            <option value="all">All Categories</option>
+            <option value="landscape">Landscape</option>
+            <option value="street">Street</option>
+            <option value="nature">Nature</option>
+            <option value="travel">Travel</option>
+            <option value="night">Night</option>
+          </select>
+          <select class="search-select" id="searchPageCollection">
+            <option value="all">All Collections</option>
+            <option value="skagit-valley">Skagit Valley</option>
+            <option value="mountains">Mt. Rainier</option>
+            <option value="city-life">City Life</option>
+            <option value="beaches">Beaches</option>
+            <option value="forest-trails">Forest Trails</option>
+          </select>
+          <button class="search-submit" id="searchPageButton" type="button">Browse</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="search-results-page">
+    <section class="section light-section">
+      <div class="container">
+        <div class="results-meta">
+          <div>
+            <div class="eyebrow">Search Results</div>
+            <h2 class="section-title" id="resultsHeading">Frames matched to your search.</h2>
+          </div>
+          <p class="section-text" id="resultsSummary">Browse the frames that fit your current query, category, and collection.</p>
+        </div>
+
+        <div class="masonry" id="searchResultsGrid"></div>
+        <p class="gallery-empty-state" id="searchResultsEmpty" hidden>No frames matched that search. Try a different mood, category, or collection.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="searchLightbox" hidden aria-hidden="true">
+    <button class="lightbox-close" id="searchLightboxClose" type="button" aria-label="Close gallery">×</button>
+    <button class="lightbox-fullscreen" id="searchLightboxFullscreen" type="button" aria-label="Open fullscreen">⛶</button>
+    <button class="lightbox-nav lightbox-prev" id="searchLightboxPrev" type="button" aria-label="Previous image">‹</button>
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Search result image gallery">
+      <img class="lightbox-image" id="searchLightboxImage" src="" alt="">
+      <div class="lightbox-caption">
+        <h2 id="searchLightboxTitle"></h2>
+        <p id="searchLightboxDescription"></p>
+      </div>
+    </div>
+    <button class="lightbox-nav lightbox-next" id="searchLightboxNext" type="button" aria-label="Next image">›</button>
+  </div>
+
+  <script src="gallery-data.js"></script>
+  <script src="search.js"></script>
+</body>
+</html>
