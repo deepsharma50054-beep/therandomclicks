@@ -95,7 +95,7 @@ const rainierItems = buildItems(
   "landscape",
   "mountains",
   "Landscape • Mt. Rainier Collection",
-  "mt rainier mountain washington national park alpine glacier landscape"
+  "mt rainier mount rainier mountain washington national park alpine glacier landscape calm quiet silence wonder stillness scenic trail snow forest sky"
 );
 
 const skagitItems = buildItems(
@@ -138,7 +138,7 @@ const skagitItems = buildItems(
   "landscape",
   "skagit-valley",
   "Landscape • Skagit Valley Collection",
-  "skagit valley washington farmland river plains fields landscape pacific northwest"
+  "skagit valley washington farmland river plains fields landscape pacific northwest calm quiet peaceful soft open airy rural road countryside sky field mood"
 );
 
 const cityLifeItems = buildItems(
@@ -153,7 +153,7 @@ const cityLifeItems = buildItems(
   "street",
   "city-life",
   "Street • City Life Collection",
-  "city life architecture streets reflections skyline urban street night"
+  "city life architecture streets reflections skyline urban street night downtown cityscape motion lights modern buildings energy mood"
 );
 
 const beachItems = buildItems(
@@ -168,7 +168,7 @@ const beachItems = buildItems(
   "travel",
   "beaches",
   "Travel • Beaches Collection",
-  "beaches coast shoreline sea water coastal travel horizon"
+  "beaches coast shoreline sea water coastal travel horizon calm peaceful blue ocean sand waves sunset shore mood"
 );
 
 const forestItems = buildItems(
@@ -183,7 +183,7 @@ const forestItems = buildItems(
   "nature",
   "forest-trails",
   "Nature • Forest Trails Collection",
-  "forest trails woodland green trees path nature filtered light"
+  "forest trails woodland green trees path nature filtered light calm quiet peaceful trail woods moss atmosphere mood"
 );
 
 window.galleryItems = [

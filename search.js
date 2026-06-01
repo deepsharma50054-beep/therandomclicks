@@ -19,6 +19,13 @@ const galleryItems = window.galleryItems || [];
 let currentResults = [];
 let currentResultIndex = 0;
 
+const normalizeSearchText = (value) =>
+  (value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
 const fullscreenElement =
   () => document.fullscreenElement || document.webkitFullscreenElement || null;
 
@@ -181,13 +188,18 @@ const updateResultsCopy = (count, query, category, collection) => {
 const renderResults = () => {
   if (!searchResultsGrid) return;
 
-  const query = searchPageField?.value.trim().toLowerCase() || "";
+  const query = searchPageField?.value.trim() || "";
+  const normalizedQuery = normalizeSearchText(query);
+  const queryTerms = normalizedQuery ? normalizedQuery.split(" ") : [];
   const category = searchPageCategory?.value || "all";
   const collection = searchPageCollection?.value || "all";
 
   const matches = galleryItems.filter((item) => {
-    const searchable = `${item.title} ${item.meta} ${item.keywords}`.toLowerCase();
-    const matchesQuery = query === "" || searchable.includes(query);
+    const searchable = normalizeSearchText(
+      `${item.title} ${item.meta} ${item.keywords} ${item.collection} ${item.category}`
+    );
+    const matchesQuery =
+      queryTerms.length === 0 || queryTerms.every((term) => searchable.includes(term));
     const matchesCategory = category === "all" || item.category === category;
     const matchesCollection = collection === "all" || item.collection === collection;
     return matchesQuery && matchesCategory && matchesCollection;
