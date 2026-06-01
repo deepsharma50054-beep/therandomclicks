@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>therandomclicks.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="announcement-bar">
+    <p>"Some places leave the map. Others stay in the heart."</p>
+  </div>
+
+      <header>
+    <div class="container navbar">
+      <a href="#home" class="brand">
+        <span class="brand-mark-wrap">
+          <img
+            class="brand-mark"
+            src="https://res.cloudinary.com/dfoirz0ps/image/upload/f_auto,q_auto/v1775965146/RC-Logo_cztwi6"
+            alt="therandomclicks logo"
+          >
+        </span>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#locations">Collections</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#archive">Archive</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <a href="#gallery" class="pill-btn primary">Explore</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-card reveal">
+          <div class="hero-topbar">
+            <div class="hero-stats">
+              <div class="stat">
+                <strong>1000+</strong>
+                <span>Small pieces of time rescued before they disappeared</span>
+              </div>
+              <div class="stat">
+                <strong>20+</strong>
+                <span>Stories gathered from roads, rain, silence, and distance</span>
+              </div>
+              <div class="stat">
+                <strong>4K</strong>
+                <span>Enough detail to hold what the moment really felt like</span>
+              </div>
+            </div>
+
+            <div class="hero-search">
+              <div class="search-row">
+                <input class="search-field" type="text" placeholder="Search the gallery by place or mood">
+                <select class="search-select">
+                  <option>All Categories</option>
+                  <option>Landscape</option>
+                  <option>Street</option>
+                  <option>Nature</option>
+                  <option>Travel</option>
+                  <option>Night</option>
+                </select>
+                <select class="search-select">
+                  <option>All Collections</option>
+                  <option>Seattle</option>
+                  <option>New York</option>
+                  <option>Jersey City</option>
+                  <option>Mountains</option>
+                  <option>Beaches</option>
+                </select>
+                <button class="search-submit">Browse</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-content">
+            <div class="eyebrow">Photography by therandomclicks</div>
+            <h2 class="hero-title">
+              Some moments pass.
+              <span class="muted-line">Some ask to be remembered.</span>
+            </h2>
+            <p class="hero-text">
+              This gallery was made for the photographs that refused to feel ordinary. The kind of light, weather, distance, and stillness that turns a passing second into something you carry with you long after it is gone.
+            </p>
+            <div class="hero-actions">
+              <a href="#gallery" class="pill-btn primary">View Gallery</a>
+              <a href="#locations" class="ghost-btn">Browse Collections</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light-section" id="gallery">
+      <div class="container">
+        <div class="slider-section reveal">
+          <div class="gallery-header">
+            <div>
+              <div class="eyebrow">Featured Showcase</div>
+              <h2 class="section-title">A few frames that never really left me.</h2>
+              <p class="section-text">
+                Not just photographs, but the after-feeling they leave behind: motion, quiet, distance, warmth, and wonder.
+              </p>
+            </div>
+
+            <div class="slider-controls">
+              <button class="slider-btn" type="button" id="sliderPrev" aria-label="Previous slide">←</button>
+              <button class="slider-btn" type="button" id="sliderNext" aria-label="Next slide">→</button>
+            </div>
+          </div>
+
+          <div class="entertainment-slider" id="imageSlider" aria-label="Featured film reel gallery">
+            <div class="film-track" id="filmTrack">
+              <article class="slide-card">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=70" alt="Open road through mountains" loading="lazy" decoding="async">
+                <div class="slide-meta">
+                  <span class="slide-kicker">Travel Collection</span>
+                  <h3>Open Roads</h3>
+                  <p>Long-distance landscapes with golden light, open horizons, and a sense of motion.</p>
+                </div>
+              </article>
+
+              <article class="slide-card">
+                <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1000&q=70" alt="Snowy mountain peaks" loading="lazy" decoding="async">
+                <div class="slide-meta">
+                  <span class="slide-kicker">Mountain Series</span>
+                  <h3>Alpine Air</h3>
+                  <p>Crisp contrast, textured ridgelines, and stillness at high altitude.</p>
+                </div>
+              </article>
+
+              <article class="slide-card">
+                <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1000&q=70" alt="City skyline at dusk" loading="lazy" decoding="async">
+                <div class="slide-meta">
+                  <span class="slide-kicker">City Light</span>
+                  <h3>After Hours</h3>
+                  <p>Urban scenes shaped by reflections, structure, and late-evening color.</p>
+                </div>
+              </article>
+
+              <article class="slide-card">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=70" alt="Ocean waves and beach" loading="lazy" decoding="async">
+                <div class="slide-meta">
+                  <span class="slide-kicker">Coastal Mood</span>
+                  <h3>Sea Light</h3>
+                  <p>Open sky, moving water, and a quiet blue atmosphere across the coastline.</p>
+                </div>
+              </article>
+
+              <article class="slide-card">
+                <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1000&q=70" alt="Forest pathway with sunlight" loading="lazy" decoding="async">
+                <div class="slide-meta">
+                  <span class="slide-kicker">Nature Detail</span>
+                  <h3>Forest Glow</h3>
+                  <p>Woodland moments with layered depth, soft light, and immersive texture.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-header reveal">
+          <div>
+            <div class="eyebrow">Main Gallery</div>
+            <h2 class="section-title">What the eye saw. What the heart kept.</h2>
+            <p class="section-text">
+              Every frame here began as a passing moment. What remains is the mood it carried: the hush before rain, the last light on water, the weight of mountains, the noise inside a city, the calm beneath trees.
+            </p>
+            <div class="gallery-filters">
+              <button class="filter-chip active">All</button>
+              <button class="filter-chip">Landscape</button>
+              <button class="filter-chip">Nature</button>
+              <button class="filter-chip">Travel</button>
+              <button class="filter-chip">Street</button>
+              <button class="filter-chip">Night</button>
+              <button class="filter-chip">Minimal</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="masonry reveal">
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 1">
+            <div class="art-meta">
+              <h4>Silent Valley</h4>
+              <p>Landscape • Mountain Collection</p>
+            </div>
+          </article>
+
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 2">
+            <div class="art-meta">
+              <h4>Blue Horizon</h4>
+              <p>Travel • Coastal Collection</p>
+            </div>
+          </article>
+
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 3">
+            <div class="art-meta">
+              <h4>Night City</h4>
+              <p>Urban • Night Collection</p>
+            </div>
+          </article>
+
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 4">
+            <div class="art-meta">
+              <h4>Still Water</h4>
+              <p>Nature • Reflection Series</p>
+            </div>
+          </article>
+
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 5">
+            <div class="art-meta">
+              <h4>Road Story</h4>
+              <p>Travel • Open Road Collection</p>
+            </div>
+          </article>
+
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 6">
+            <div class="art-meta">
+              <h4>Wild Bloom</h4>
+              <p>Nature • Detail Collection</p>
+            </div>
+          </article>
+
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 7">
+            <div class="art-meta">
+              <h4>Forest Breath</h4>
+              <p>Nature • Woodland Collection</p>
+            </div>
+          </article>
+
+          <article class="art-card">
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80" alt="Gallery image 8">
+            <div class="art-meta">
+              <h4>Color Trail</h4>
+              <p>Landscape • Sky Collection</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light-section" id="locations">
+      <div class="container">
+        <div class="split-intro reveal">
+          <div>
+            <div class="eyebrow">Gallery Collections</div>
+            <h2 class="section-title">Every place speaks in its own silence.</h2>
+          </div>
+          <div class="glass-card">
+            <p class="section-text">
+              Some places stay with us because of what we saw there. Others stay because of what we felt. These collections were made for both.
+            </p>
+          </div>
+        </div>
+
+        <div class="location-grid">
+          <a href="collection.html?collection=mountains" class="location-card reveal">
+            <img src="https://res.cloudinary.com/dfoirz0ps/image/upload/v1775958391/DSC01066_xkaex2.jpg" alt="Mt. Rainier collection cover">
+            <div class="location-overlay">
+              <div>
+                <h3>Mt. Rainier</h3>
+                <p>A mountain that does not simply appear, but arrives with weight, weather, and reverence.</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="collection.html?collection=city-life" class="location-card reveal">
+            <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1200&q=80" alt="City Life collection cover">
+            <div class="location-overlay">
+              <div>
+                <h3>City Life</h3>
+                <p>Where restlessness becomes rhythm, and even the noise begins to glow.</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="collection.html?collection=beaches" class="location-card reveal">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Beaches collection cover">
+            <div class="location-overlay">
+              <div>
+                <h3>Beaches</h3>
+                <p>Where the horizon loosens the mind, and the tide teaches everything how to return.</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="collection.html?collection=forest-trails" class="location-card reveal">
+            <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=80" alt="Forest Trails collection cover">
+            <div class="location-overlay">
+              <div>
+                <h3>Forest Trails</h3>
+                <p>Where light walks softly, and silence feels deeper than sound.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="archive">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Gallery Archive</div>
+          <h2 class="section-title">For the photographs that kept asking to stay.</h2>
+          <p class="section-text">
+            Some images do not fade when the day ends. They return in memory, in feeling, in unfinished thought. This archive is where those photographs are allowed to remain.
+          </p>
+        </div>
+
+        <div class="system-grid">
+          <div class="system-card reveal">
+            <h3>Organized Collections</h3>
+            <p>
+              A single image can whisper. A collection can tell the whole ache, distance, or wonder behind it.
+            </p>
+          </div>
+
+          <div class="system-card reveal">
+            <h3>Scalable Archive</h3>
+            <p>
+              As the archive grows, the hope is simple: that every new frame still feels chosen, not crowded.
+            </p>
+          </div>
+
+          <div class="system-card reveal">
+            <h3>Refined Viewing</h3>
+            <p>
+              Because the best photographs do not need noise around them. They only need room to be felt.
+            </p>
+          </div>
+        </div>
+
+        <div class="cta-banner reveal">
+          <div>
+            <h3>therandomclicks.com</h3>
+            <p>
+              Built for the kind of moments that slip by in real life, but stay luminous in memory.
+            </p>
+          </div>
+          <a href="#gallery" class="pill-btn primary">Enter Gallery</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <p>© 2026 therandomclicks.com — "A memory of places, told in light."</p>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#locations">Collections</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#archive">Archive</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
