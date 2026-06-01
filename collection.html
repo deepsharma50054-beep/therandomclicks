@@ -26,6 +26,20 @@
     <section class="collection-grid" id="collectionGrid"></section>
   </main>
 
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close gallery">×</button>
+    <button class="lightbox-fullscreen" id="lightboxFullscreen" type="button" aria-label="Open fullscreen">⛶</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">‹</button>
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Image gallery">
+      <img class="lightbox-image" id="lightboxImage" src="" alt="">
+      <div class="lightbox-caption">
+        <h2 id="lightboxTitle"></h2>
+        <p id="lightboxDescription"></p>
+      </div>
+    </div>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">›</button>
+  </div>
+
   <script src="collection.js"></script>
 </body>
 </html>
